@@ -3,19 +3,16 @@ package api.models
 import org.jetbrains.exposed.sql.Table
 import org.joda.time.DateTime
 
-object Users : Table() {
+object Positions : Table() {
     val id = integer("id").primaryKey().autoIncrement()
     val name = varchar("name", 255)
-    val lastname = varchar("lastname",255)
-    val age = integer("quantity")
+    val slug = varchar("slug",255)
     val createdAt = DateTime("createdAt")
     val updatedAt = DateTime("updatedAt")
-    val positionId = (integer("positionId") references Positions.id).nullable()
 }
 
-data class User(
+data class Position(
         val id: Int?,
         val name: String?,
-        val lastname: String?,
-        val age:Int?
+        val slug: String?
 )

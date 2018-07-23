@@ -24,6 +24,8 @@ fun Application.module() {
         }
     }
 
+    DbConfig.init()
+
     install(Routing) {
         user(UserService())
     }
